@@ -1,15 +1,30 @@
+
+/**
+ * Clase Principal
+ * 
+ * @author Saindell Sabrina Brenes Hernández C01309
+ * @author Gabriel Bonilla Rivera C01252
+ * @author Johana Wu Nie C08591
+ * @version 09/12, final
+ */
 import java.io.*;
 import java.util.Scanner;
 public class Principal{
     private String palabras [];
     private int frecuencia [];
     private String contenido[];
-
+    /**
+     * Constructor sin parametros
+     */
     public Principal(){
         palabras = new String [1];
     }
 
-
+    /**
+     * Efectua: carga el archivo de texto introducido al programa y verifica si es compatible con el programa, ademas guarda las palabras que que encuentra en un vector
+     * @param archivo- archivo de texto
+     * @return existeArchivo- booleano que verifica si el archivo de texto fue cargado correctamente en el programa
+     */
     public boolean cargarArchivo(String archivo){
         boolean existeArchivo = true;
         int i = 0;
@@ -33,6 +48,10 @@ public class Principal{
         }
         return existeArchivo;
     }
+    /**
+     * Efectua: ordena alfabeticamente las palabras que se encuentra en el vector palabras
+     * Modifica: el orden de los elementos del vector
+     */
     public void ordenamientoBurbuja(){
         String swap = "";
          for(int i = 0; i < palabras.length; i++){
@@ -45,6 +64,10 @@ public class Principal{
             }
         }
     }
+    /**
+     * Efectua: crea el vector frecuencia y calcula la frecuencia que tiene cada palabra distinta en el archivo de texto y crea el vector contenido en la cual contiene las palabras sin repetir
+     * 
+     */
     public void calcularFrecuencias(){
         frecuencia = new int [1];
         contenido = new String[1];
@@ -79,6 +102,11 @@ public class Principal{
             }
         }
     }
+    
+    /**
+     * Efectua: ordena el vector de menor a mayor frecuencia, y lo hace coincidir con el vector contenido, en referente a su frecuencia y respectivo palabra
+     * Modifica: el orden de los elementos de los vectores
+     */
     public void ordenarVectores(){
          int swap = 0;
         String cambio = "";
@@ -96,12 +124,27 @@ public class Principal{
 
         }
     }
+    
+    /**
+     * Efectua: devuelve la variable vector frecuencia de la clase Principal
+     * @return frecuencia- vector que contiene las frecuencias de cada palabra en el archivo de texto
+     */
     public int [] getFrecuencia(){
         return frecuencia;
     }
+    
+    /**
+     * Efectua: devuelve la variable vector palabras de la clase Principal
+     * @return palabras- vector que contiene las palabras del archivo de texto
+     */
     public String[] getPalabras(){
         return palabras;
     }
+    
+    /**
+     * Efectua: devuelve la variable vector contenido de la clase Principal
+     * @return palabras- vector que contiene las palabras sin repetir del archivo de texto
+     */
     public String [] getContenido(){
         return contenido;
     }
