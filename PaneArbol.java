@@ -1,3 +1,5 @@
+ 
+
 /**
  * Clase PaneArbol
  * 
@@ -61,7 +63,7 @@ public class PaneArbol extends JPanel {
      * @param coordenadaY- posicion en eje y (vertical)
      * @param dimensiones- se le hace referencia a nulo
      */
-    public void arbolBinario(Graphics g, Nodo nodoActual, int coordenadaX, int coordenadaY, int dimensiones){
+   public void arbolBinario(Graphics g, Nodo nodoActual, int coordenadaX, int coordenadaY, int dimensiones){
         //Si el nodoActual es igual al raiz del arbol 
         if(nodoActual == arbol1.getRaiz()){
             //Se dibuja o grafica el atributo frecuencia del nodo raiz
@@ -69,14 +71,24 @@ public class PaneArbol extends JPanel {
             g.drawString(""+nodoActual.getFrecuencia(), coordenadaX+50, coordenadaY +90);
             //Si tiene hijo se dibuja o grafica una linea que conecte el nodo raiz con el hijo
             if(nodoActual.hijos[0] != null) {
-                g.drawLine(coordenadaX + 55, coordenadaY + 95, coordenadaX - 20, coordenadaY + 105);
+                if(nodoActual.hijos[0].getPalabra().equals("1") == false){
+                  g.drawLine(coordenadaX + 55, coordenadaY + 95, coordenadaX - 45, coordenadaY + 120);
+                }
+                else{
+                  g.drawLine(coordenadaX + 55, coordenadaY + 95, coordenadaX - 52, coordenadaY + 160);
+                }
             }
             if(nodoActual.hijos[1] != null){
-                g.drawLine(coordenadaX + 55, coordenadaY + 95, coordenadaX +140, coordenadaY + 140);
+                if(nodoActual.hijos[1].getPalabra().equals("1") == false){
+                  g.drawLine(coordenadaX + 55, coordenadaY + 95, coordenadaX +165, coordenadaY + 130);
+                }
+                else{
+                  g.drawLine(coordenadaX + 55, coordenadaY + 95, coordenadaX +160, coordenadaY + 160);
+                }
             }
             //recursividad para continuar la creacion de la graficacion del arbol a traves de los nodos hijos del nodo raiz
-            arbolBinario(g,  nodoActual.hijos[0], coordenadaX-80,coordenadaY+70, dimensiones);
-            arbolBinario(g,  nodoActual.hijos[1], coordenadaX+80, coordenadaY+70,dimensiones);
+            arbolBinario(g,  nodoActual.hijos[0], coordenadaX-110,coordenadaY+90, dimensiones);
+            arbolBinario(g,  nodoActual.hijos[1], coordenadaX+110, coordenadaY+90,dimensiones);
         }
         else{
             if(nodoActual != arbol1.getRaiz() && nodoActual != null){
@@ -86,8 +98,8 @@ public class PaneArbol extends JPanel {
                     g.drawString("" + nodoActual.getPalabra(), coordenadaX + 50, coordenadaY + 50);
                     g.setFont(new Font("Arial", Font.ITALIC, 10));
                     g.drawString("" + nodoActual.getFrecuencia(), coordenadaX + 50, coordenadaY + 70);
-                    arbolBinario(g, nodoActual.hijos[0], coordenadaX - 80, coordenadaY + 70, dimensiones);
-                    arbolBinario(g, nodoActual.hijos[1], coordenadaX + 80, coordenadaY + 70, dimensiones);
+                    arbolBinario(g, nodoActual.hijos[0], coordenadaX - 100, coordenadaY + 70, dimensiones);
+                    arbolBinario(g, nodoActual.hijos[1], coordenadaX + 100, coordenadaY + 70, dimensiones);
                 }
                 else{
                     g.setFont(new Font("Arial", Font.ITALIC, 10));

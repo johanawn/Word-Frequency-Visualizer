@@ -1,4 +1,14 @@
+ 
 
+
+/**
+ * Clase Intefaz
+ * 
+ * @author Saindell Sabrina Brenes Hernández C01309
+ * @author Gabriel Bonilla Rivera C01252
+ * @author Johana Wu Nie C08591
+ * @version 09/12, final
+ */
 
 import java.awt.BorderLayout;
 import java.awt.Container;
@@ -23,7 +33,10 @@ public class Interfaz implements ActionListener {
     private VentanaArbol ventanaArbol;
     private VentanaMapa ventanaMapa;
     private Principal principal;
-
+/**
+ * Constructor con parametros, es el encargado de preparar la ventana de inicio o menu del programa
+ * @param principal- pertenece a la clase Principal
+ */
     public Interfaz(Principal principal){
         this.principal = principal;
         ventana = new JFrame();
@@ -59,7 +72,10 @@ public class Interfaz implements ActionListener {
 
     }
 
-    @Override
+/**
+ * Efectua: pertenece a la clase ActionListener, es el encargado de ejecutar las respectivas acciones o los eventos despues de detectar la escogencia del boton por el usuario
+ * @param event- hace referencia a la escogencia de los botones del programa
+ */
     public void actionPerformed(ActionEvent event) {
         // TODO Auto-generated method stub
         if(event.getSource() ==  boton_lista) {
